@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "952889389825",
+    "project_id": "androidfirstproject-a942f",
+    "storage_bucket": "androidfirstproject-a942f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952889389825:android:87ad62a6a1c7190fe06100",
+        "android_client_info": {
+          "package_name": "com.example.subscriptionreminder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952889389825-bjakbgl3dehkg3netm232l2g919jt7re.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDfg79NXPRpjktyaDgFMINC0XWVrqkmMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952889389825-bjakbgl3dehkg3netm232l2g919jt7re.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
