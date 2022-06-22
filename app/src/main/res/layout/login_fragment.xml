@@ -69,6 +69,7 @@
                 tools:layout_editor_absoluteX="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailLogin"
                     android:layout_width="match_parent"
                     android:singleLine="true"
                     android:layout_height="wrap_content" />
@@ -89,6 +90,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
@@ -161,7 +163,7 @@
                     tools:layout_editor_absoluteX="16dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/email"
+                        android:id="@+id/emailRegister"
                         android:layout_width="match_parent"
                         android:singleLine="true"
                         android:layout_height="wrap_content" />
@@ -182,7 +184,7 @@
                     tools:ignore="MissingConstraints">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/password"
+                        android:id="@+id/passwordRegister"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:singleLine="true"

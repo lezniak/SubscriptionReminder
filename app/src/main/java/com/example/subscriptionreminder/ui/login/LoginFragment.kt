@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser
 import androidx.annotation.NonNull
 
 import android.R.attr.password
+import com.example.subscriptionreminder.infrastructure.common.Validation
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -98,6 +99,13 @@ class LoginFragment: Fragment() {
         binding.cancel.setOnClickListener {
             binding.loginSection.visibility = View.VISIBLE
             binding.registerSection.visibility = View.GONE
+        }
+
+        binding.login.setOnClickListener {
+            val email = binding.emailLogin.text
+            val validation = Validation()
+            validation.validateEmail(email.toString())
+            val password = binding.passwordLogin.text
         }
     }
 }
