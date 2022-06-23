@@ -116,7 +116,7 @@ class LoginFragment: Fragment() {
             val email = binding.emailRegister.text.toString()
             val password1 = binding.passwordRegister.text.toString()
             val password2 = binding.passwordRepeat.text.toString()
-            val validationResult = validation.arePasswordsEqual(password1,password2)
+            val validationResult = validation.registerValid(email,password1,password2)
 
             if(validationResult.getStatus() != 1){
                 viewModel.setMessage(validationResult.getErrorMessage())
