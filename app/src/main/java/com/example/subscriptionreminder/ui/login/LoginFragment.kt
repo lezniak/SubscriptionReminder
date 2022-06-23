@@ -28,7 +28,7 @@ class LoginFragment: Fragment() {
     private val viewModel by viewModels<LoginViewModel>()
     lateinit var binding : LoginFragmentBinding
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-
+    private val validation = Validation()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -76,15 +76,13 @@ class LoginFragment: Fragment() {
                 OnCompleteListener<AuthResult?> { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "signInWithEmail:success")
+                        viewModel.setMessage("Logowanie pomyślnie")
                         val user = mAuth.currentUser
                     } else {
                         // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            requireContext(), "Authentication failed.",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Log.w(TAG, "signInWithEmail:failure")
+
+                        viewModel.setMessage("Logowanie niepomyślne")
 
                     }
                 })
@@ -103,9 +101,28 @@ class LoginFragment: Fragment() {
 
         binding.login.setOnClickListener {
             val email = binding.emailLogin.text
-            val validation = Validation()
-            validation.validateEmail(email.toString())
             val password = binding.passwordLogin.text
+            val validationResult = validation.validateEmail(email.toString())
+
+
+            if(validationResult.getStatus() != 1){
+                viewModel.setMessage(validationResult.getErrorMessage())
+            }else{
+                logInUser(email.toString(),password.toString())
+            }
+        }
+
+        binding.signIn.setOnClickListener {
+            val email = binding.emailRegister.text.toString()
+            val password1 = binding.passwordRegister.text.toString()
+            val password2 = binding.passwordRepeat.text.toString()
+            val validationResult = validation.arePasswordsEqual(password1,password2)
+
+            if(validationResult.getStatus() != 1){
+                viewModel.setMessage(validationResult.getErrorMessage())
+            }else{
+                createNewUser(email,password1)
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ class ValidationTest : TestCase(){
 
     @Test
     fun testEmailLong(){
-        val  result = validation.validateEmail("dasdsadasdasddsadsaasdasdadlkasjdlkjsadlkjsalkdsdasdasdas@o2.pl")
+        val  result = validation.validateEmail("dasdsadasdasddsadsaadsadasdsadsasdasdadlkasjdlkjsadlkjsalkdsdasdasdas@o2.pl")
         assertEquals(0,result.getStatus())
     }
 
