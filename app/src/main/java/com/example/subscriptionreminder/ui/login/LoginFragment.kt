@@ -58,7 +58,6 @@ class LoginFragment: Fragment() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "createUserWithEmail:success")
                         val user = mAuth.currentUser
-
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -78,6 +77,7 @@ class LoginFragment: Fragment() {
                         // Sign in success, update UI with the signed-in user's information
                         viewModel.setMessage("Logowanie pomyślnie")
                         val user = mAuth.currentUser
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithEmail:failure")
@@ -100,17 +100,16 @@ class LoginFragment: Fragment() {
         }
 
         binding.login.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-//            val email = binding.emailLogin.text
-//            val password = binding.passwordLogin.text
-//            val validationResult = validation.validateEmail(email.toString())
-//
-//
-//            if(validationResult.getStatus() != 1){
-//                viewModel.setMessage(validationResult.getErrorMessage())
-//            }else{
-//                logInUser(email.toString(),password.toString())
-//            }
+            val email = binding.emailLogin.text
+            val password = binding.passwordLogin.text
+            val validationResult = validation.validateEmail(email.toString())
+
+
+            if(validationResult.getStatus() != 1){
+                viewModel.setMessage(validationResult.getErrorMessage())
+            }else{
+                logInUser(email.toString(),password.toString())
+            }
         }
 
         binding.signIn.setOnClickListener {
