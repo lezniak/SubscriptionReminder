@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.subscriptionreminder.databinding.LoginFragmentBinding
-import com.example.subscriptionreminder.ui.main.MainViewModel
+
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +19,8 @@ import com.google.firebase.auth.FirebaseUser
 import androidx.annotation.NonNull
 
 import android.R.attr.password
+import androidx.navigation.fragment.findNavController
+import com.example.subscriptionreminder.R
 import com.example.subscriptionreminder.infrastructure.common.Validation
 import com.google.android.material.snackbar.Snackbar
 
@@ -46,9 +48,6 @@ class LoginFragment: Fragment() {
             Snackbar.make(view, it, Snackbar.LENGTH_SHORT)
                 .show()
         }
-
-
-
     }
 
     fun createNewUser(email: String, password : String){
@@ -59,6 +58,7 @@ class LoginFragment: Fragment() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "createUserWithEmail:success")
                         val user = mAuth.currentUser
+
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -100,16 +100,17 @@ class LoginFragment: Fragment() {
         }
 
         binding.login.setOnClickListener {
-            val email = binding.emailLogin.text
-            val password = binding.passwordLogin.text
-            val validationResult = validation.validateEmail(email.toString())
-
-
-            if(validationResult.getStatus() != 1){
-                viewModel.setMessage(validationResult.getErrorMessage())
-            }else{
-                logInUser(email.toString(),password.toString())
-            }
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+//            val email = binding.emailLogin.text
+//            val password = binding.passwordLogin.text
+//            val validationResult = validation.validateEmail(email.toString())
+//
+//
+//            if(validationResult.getStatus() != 1){
+//                viewModel.setMessage(validationResult.getErrorMessage())
+//            }else{
+//                logInUser(email.toString(),password.toString())
+//            }
         }
 
         binding.signIn.setOnClickListener {
