@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.subscriptionreminder.databinding.HomeFragmentBinding
 import com.example.subscriptionreminder.ui.login.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment: Fragment() {
 
     private val viewModel by viewModels<HomeViewModel>()
@@ -20,6 +22,7 @@ class HomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = HomeFragmentBinding.inflate(layoutInflater)
+        viewModel.setMessage("tset")
         return binding.root
     }
 
