@@ -35,6 +35,11 @@ class HomeFragment: Fragment() {
         viewModel.subscriptionList.observe(viewLifecycleOwner) {
             setupRecycleView(it)
         }
+
+        binding.floatingActionButton.setOnClickListener {
+            val modalBottomSheet = ModalBottomSheet()
+            modalBottomSheet.show(parentFragmentManager, ModalBottomSheet.TAG)
+        }
     }
 
     fun setupRecycleView(list: List<Subscription>): Int{
