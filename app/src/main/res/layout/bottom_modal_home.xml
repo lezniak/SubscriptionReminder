@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/staticText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Add subscription"
+            android:textSize="32dp" />
+
         <EditText
-            android:id="@+id/jeden"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test" />
+            android:layout_below="@id/staticText"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name" />
+
         <EditText
-            android:id="@+id/dwa"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/jeden"
-            android:text="Test"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            android:layout_below="@id/dwa"
-            />
+            android:layout_below="@id/name"
+            android:ems="10"
+            android:inputType="none"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="Date" />
+
+
     </RelativeLayout>
 
 </layout>
